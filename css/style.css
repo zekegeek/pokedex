@@ -20,7 +20,6 @@ li.typeselect{
 
 input[type=checkbox].pokechecks{
 	margin: 9px;
-	transform: scale(1.4);
 }
 
 label.pokelabels{
