@@ -1,10 +1,10 @@
 
-#pokemonlogo {
+#pokemonlogo{
 	width: 40%;
-	margin: 5% 30% 0% 30%;
+	margin: 5% 30% 5% 30%;
 }
 
-ul{
+ul.homelists{
 	margin-top: 5%;
 	display: inline-block;
 }
@@ -18,20 +18,35 @@ li.typeselect{
 	color: #3269B2;
 }
 
-label{
+input[type=checkbox].pokechecks{
+	margin: 9px;
+	transform: scale(1.4);
+}
+
+label.pokelabels{
     font-size: 20px;
-    line-height: 1.2;
     color: #254D9C;
-    font-weight: 400;
-    padding: 5px 0px 0px 5px;
+    font-weight: 300;
 }
 
 li.pokenames{
 	list-style-type: none;
 	float: left;
 	padding: 1% 1% 0% 1%;
-	width: 150px;
+	width: 250px;
 	height: 50px;
 	text-shadow: 1px 1px grey;
 }
 
+button.resultgrid{
+	width: 240px;
+}
+
+ul.detailslist{
+	list-style-type: circle;
+}
+
+ul.detailslist li{
+	font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+	font-size: 16px;
+}

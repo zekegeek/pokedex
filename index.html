@@ -4,33 +4,48 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/bootstrap-material-design.css">
     <link rel="stylesheet" href="css/style.css">
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src ="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.min.js"></script>
 
   </head>
   <body >
-    <div ng-controller="MainController">
+    <div ng-controller="MainController" class="container">
       <img id="pokemonlogo" src="img/Pokemon_logo.png" alt="Pokemon logo">
 
       <div id="search" ng-hide="selectedPokemon.name">
-        <ul>
-          <li ng-repeat="type in types" class="typeselect"><label><input type="checkbox" ng-value="type"
+        <ul class="homelists">
+          <li ng-repeat="type in types" class="typeselect"><label class="pokelabels"><input type="checkbox" class="pokechecks" ng-value="type"
    ng-model="type.checked" ng-change="setSelectedTypes()">{{type.name}}</label></li>
         </ul>
-        <ul>
-          <li ng-repeat="monster in monsters | filter: isTypeSelected" class="pokenames"><button ng-click="setSelectedPokemon(monster)" class="btn btn-default">{{monster.name}}</button></li>
+        <ul class="homelists">
+          <li ng-repeat="monster in monsters | filter: isTypeSelected" class="pokenames"><button ng-click ="setSelectedPokemon(monster)" class="btn btn-default resultgrid">{{monster.name}}</button></li>
         </ul>
       </div>
         
-      <div id="details" ng-show="selectedPokemon.name">
-        <button ng-click="selectedPokemon = ''">back</button>
-        <span>Selected Pokemon: {{selectedPokemon.name}}</span>
-        <span>weight: {{selectedPokemon.weight}}</span>
-        <span>height: {{selectedPokemon.height}}</span>
-        <img ng-src="{{selectedPokemon.sprites.front_default}}" />
-        <ul>
-          <li ng-repeat="type in selectedPokemon.types">{{type.type.name}}</li>
-        </ul>
+      <div class="jumbotron" ng-show="selectedPokemon.name">
+        <p class="lead">
+          <button ng-click="selectedPokemon = ''" class="btn btn-primary btn-lg">back</button>
+        </p>
+        <hr class="m-y-2">
+        <h1 class="display-3"><img ng-src="{{selectedPokemon.sprites.front_default}}" />{{selectedPokemon.name}}</h1>
+        <hr class="m-y-2">
+        <p class="lead">weight: {{selectedPokemon.weight}}</p>
+        <p class="lead">height: {{selectedPokemon.height}}</p>
+        <div class="lead">
+          types:
+          <ul class="detailslist">
+            <li ng-repeat="type in selectedPokemon.types">{{type.type.name}}</li>
+          </ul>
+        </div>
+        <div class="lead">
+          abilities:
+          <ul class="detailslist">
+            <li ng-repeat="ability in selectedPokemon.abilities">{{ability.ability.name}}</li>
+          </ul>
       </div>
 
 
