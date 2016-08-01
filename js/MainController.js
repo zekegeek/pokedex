@@ -1,5 +1,5 @@
 app.controller('MainController', ['$scope', '$resource', function($scope, $resource){
-		//$scope.selectedPokemon = null;
+		  //$scope.selectedPokemon = {};
       $scope.monsters = [];
       $scope.types = [];
       $scope.selectedTypes = [];
@@ -8,6 +8,11 @@ app.controller('MainController', ['$scope', '$resource', function($scope, $resou
         	$scope.selectedTypes = $scope.types.filter(function(t){
         		return t.checked === true;
         });
+      };
+
+      $scope.setSelectedPokemon = function (thePokemon) {
+        $scope.selectedPokemon = $resource(thePokemon.url).get();
+        console.log($scope.selectedPokemon);
       };
 
       /*$scope.setSelectedPokemon = function() {
